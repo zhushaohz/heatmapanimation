@@ -103,14 +103,14 @@ class Heatmap:
         elif len_data == 1:
             # print('只有一个时间点，无法生成动画，将生成单帧图像')
             self.draw(0)
-            plt.savefig('heatmap-animation.png')
+            plt.savefig('heatmap.png')
         else:
             try:
                 animator = animation.FuncAnimation(self.fig, func=self.draw, frames=range(0, len_data), interval=500)
                 if self.__output_format == 'gif':
-                    animator.save('heatmap-animation.gif', dpi=300)
+                    animator.save('heatmap.gif', dpi=300)
                 elif self.__output_format == 'mp4':
-                    animator.save('heatmap-animation.mp4', writer='ffmpeg')
+                    animator.save('heatmap.mp4', writer='ffmpeg')
                 elif self.__output_format == 'html':
                     with open('output.html', 'w') as f:
                         f.write(animator.to_jshtml())
@@ -227,7 +227,7 @@ class Heatmap:
         if self.__fig_name is not None:
             plt.title(self.__fig_name + str(time))
         else:
-            plt.title('热力图')
+            plt.title(self.__region)
         # plt.title('Time: ' + str(time))
         plt.savefig(self.__frame_output_path + '/frame' + str(time) + '.png', dpi=300)
         return fig
