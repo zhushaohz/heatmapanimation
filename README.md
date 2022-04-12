@@ -8,9 +8,12 @@ Python package for generating heatmap animation with given data and geojson.
 
 ## Introduction
 
+
 ## Install
 
+    pip install heatmapanimation
 ## Usage
 
 ## License
 
+    MIT

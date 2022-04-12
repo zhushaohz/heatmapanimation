@@ -124,6 +124,7 @@ class Heatmap:
                 print('生成动画错误，请检查数据是否正确')
                 sys.exit()
         print('Done')
+        return 'success'
 
     def run_x(self):
         # without using animation module
@@ -176,7 +177,7 @@ class Heatmap:
         elif len_data == 1:
             # print('只有一个时间点，无法生成动画，将生成单帧图像')
             self.draw(0)
-            plt.savefig('heatmap-animation.png')
+            plt.savefig('heatmap.png')
         else:
             try:
                 for i in range(0, len_data):
@@ -194,6 +195,7 @@ class Heatmap:
             else:
                 print('暂不支持该格式')
         print('Done')
+        return 'success'
 
     def draw(self, time):
         """
