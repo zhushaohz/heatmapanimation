@@ -53,35 +53,87 @@ Must be type Chinese region code.
 
   The url of the geojson file.Or the geojson file path.
 
-**datafile**
++ **datafile**
 
-The data file path.
+  The data file path.
 
-**data**
++ **data**
 
-The data you want to generate the heatmap animation.
+  The data you want to generate the heatmap animation.
 
-Options: dict or list or json or pandas.DataFrame.
+  Options: dict or list or json or pandas.DataFrame.
 
-**output_format**
++ **output_format**
 
-The output format of the animation.
+  The output format of the animation.
 
-Options: 'gif' or 'mp4'.
+  Options: 'gif' or 'mp4'.
 
-**fig_name**
++ **fig_name**
 
-The name of the output file.
+  The name of the output file.
 
-Note: If you don't set the fig_name, the output file will be named as the region name.
+  Note: If you don't set the fig_name, the output file will be named as the region name.
 
-**isLegend**
++ **color_map**
 
-Whether to show the legend.
+  The colormap of the heatmap.
 
-Options: True or False.
+  Options: 'Blues', 'BuGn', 'BuPu', 'GnBu', 'Greens', 'Greys', 'Oranges', 'OrRd', 'PuBu'.
+  
+  All the colormaps are in [matplotlib](https://matplotlib.org/stable/tutorials/colors/colormaps.html).
 
-<p style="margin-left: 20px">Default: False.</p>
+  Default: 'Reds'
+
++ **isLegend**
+
+  Whether to show the legend.
+
+  Options: True or False.
+
+  Default: False.
+
++ **legend_label**
+
+  The label of the legend.
+
+  Options: str.
+
+  Default: 'Temperature'.
+
++ **legend_location**
+
+  The location of the legend.
+
+  Options: 'right' or 'right'.
+
+  Default: 'right'.
+
++ **legend_min**
+
+  The min value of the legend.
+
+  Options: int or float.
+
+  Default: the minimum of the data.
+
++ **legend_max**
+
+  The max value of the legend.
+
+  Options: int or float.
+
+  Default: the maximum of the data.
+
++ **run_x()**
+
+  Run the animation and generate frame image and synthetic GIF. Currently,
+  the output format is only 'gif'.
+
++ **run()**
+
+  Run the animation with another method which can not show the legend. But the output format
+  is gif, mp4, jshtml and html5.
 ## License
 
 [MIT](https://github.com/zhushaohz/heatmapanimation/blob/master/LICENSE)
