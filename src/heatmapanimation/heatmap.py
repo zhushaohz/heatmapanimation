@@ -10,6 +10,7 @@ import urllib.error
 import json
 import datetime as dt
 import imageio
+import cv2
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
@@ -190,8 +191,8 @@ class Heatmap:
                 self.compose_gif()
             elif self.__output_format == 'mp4':
                 # 合成mp4
-                print('合成mp4待开发')
-                # self.compose_mp4()
+                # print('合成mp4待开发')
+                self.compose_mp4()
             else:
                 print('暂不支持该格式')
         print('Done')
@@ -261,6 +262,25 @@ class Heatmap:
             images.append(imageio.imread(self.__frame_output_path + '/frame' + str(i) + '.png'))
         imageio.mimsave('heatmapx.gif', images, fps=2)
         print('Gif Saved')
+
+
+    def compose_mp4(self):
+        """
+        将生成的图片合成为mp4
+        """
+        size = (3000, 3000)
+        videowrite = cv2.VideoWriter('heatmapx.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 5, size)
+        images = []
+        for i in range(0, len(self.__data.columns) - 1):
+            images.append(cv2.imread(self.__frame_output_path + '/frame' + str(i) + '.png'))
+        for i in range(0, len(self.__data.columns) - 1):
+            videowrite.write(images[i])
+            videowrite.write(images[i])
+            videowrite.write(images[i])
+            videowrite.write(images[i])
+            videowrite.write(images[i])
+        videowrite.release()
+        print('Mp4 Saved')
     # --------------------------------------------------------------------------
     # Setter & getter
     # --------------------------------------------------------------------------

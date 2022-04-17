@@ -28,7 +28,7 @@ heatmap.datafile = './data/data.csv'
 #     ['密云县', 17, 24],
 #     ['延庆县', 18, 25]
 # ]
-heatmap.output_format = 'gif'
+heatmap.output_format = 'mp4'
 heatmap.fig_name = '我是图片名称'
 heatmap.isLegend = True
 heatmap.legend_label = '温度'
